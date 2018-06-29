@@ -9,35 +9,47 @@
     <title>Simple calculator</title>
 </head>
 <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/calc.js"></script>
+<script>
+    $(document).ready(function(){
+        $("form").submit(function(e){
+        e.preventDefault();
+        });
+    });
+</script>
 
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col col-lg-8">
-            <div class="container">
+            <div class="container" >
                 <form class="form-inline" action="">
                     <div class="form-group">
                         <input type="number" class="form-control" id="firstNumber" placeholder="Enter first number" name="firstNumber">
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="sel1">
-                            <option>+</option>
-                            <option>-</option>
-                            <option>*</option>
-                            <option>/</option>
+                        <select class="form-control" id="operator">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">*</option>
+                            <option value="/">/</option>
+                            <option value="%">%</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <input type="number" class="form-control" id="secondNumber" placeholder="Enter second number" name="secondNumber">
                     </div>
-                    <button type="submit" name="calcBtn"  class="btn btn-success">Calculate</button>
-                    <button type="submit" name="clearBtn" class="btn btn-danger">Clear</button>
+                    <button type="submit" name="calcBtn"  class="btn btn-success" onclick="calculate()">Calculate</button>
+                    <button type="button" name="clearBtn" class="btn btn-danger" onclick="clearCalc();">Clear</button>
                 </form>
             </div>
         </div>
     </div>
+</div>
 
 
-<script src="js/jquery-3.3.1.min.js"></script>
+
+
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
