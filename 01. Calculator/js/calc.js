@@ -17,7 +17,7 @@ function calculate(){
         } else {
             var result = eval(input);
             
-            if(result == "Infinity") {
+            if(result == "Infinity" || result == "-Infinity") {
                 alert("Cannot divide by 0");
             } else {
                 alert("Result: " + result);
@@ -41,7 +41,7 @@ function addToEquation(charInput) {
             if(currentEQ.length == 0){
                 addCharToEQ(0);
             }
-            var anyDotsBeforeRegex = /^(\d+(\.\d+)+?(?=[\-\+\/\*]))/;
+            var anyDotsBeforeRegex = /^(\d+(\.\d+)+?(?=[\-\+\/\*]?))/;
             var reversedEq = currentEQ.split("").reverse().join("");
             if(anyDotsBeforeRegex.test(reversedEq)){
                 return;
@@ -58,4 +58,16 @@ function addToEquation(charInput) {
 
 function addCharToEQ(charInput) {
     document.getElementById('equation').value += charInput;
+}
+
+function keyPressedHandler(e){
+    var keyCode = e.keyCode;
+    if(keyCode == 13) calculate();
+    if((keyCode > 47 && keyCode < 58) || (keyCode > 41 && keyCode < 48)) {
+        addToEquation(e.key);
+        return false;
+     
+    } else {
+        return false;
+    }
 }

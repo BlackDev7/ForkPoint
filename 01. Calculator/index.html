@@ -27,9 +27,9 @@
             <div class="container" >
                 <form class="form-inline" action="">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="equation" placeholder="Enter your equation" name="equation">
+                        <input type="text" class="form-control" id="equation" placeholder="Enter your equation" name="equation" onkeypress="return  keyPressedHandler(event);">
                     </div>
-                    <button type="submit" name="calcBtn"  class="btn btn-success" onclick="calculate()">Calculate</button>
+                    <button type="submit" name="calcBtn"  class="btn btn-success" onclick="calculate();">Calculate</button>
                     <button type="submit" name="ceBtn"  class="btn btn-warning" onclick="document.getElementById('equation').value = ''">CE</button>
                     <button type="button" name="cBtn" class="btn btn-danger" onclick="removeLast();">C</button>
                 </form>
