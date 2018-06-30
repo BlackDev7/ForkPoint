@@ -63,6 +63,7 @@ function addCharToEQ(charInput) {
 function keyPressedHandler(e){
     var keyCode = e.keyCode;
     if(keyCode == 13) calculate();
+    if(keyCode == 118) addToEquation(".");
     if((keyCode > 47 && keyCode < 58) || (keyCode > 41 && keyCode < 48)) {
         addToEquation(e.key);
         return false;
