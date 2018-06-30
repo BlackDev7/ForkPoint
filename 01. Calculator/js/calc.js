@@ -1,16 +1,18 @@
 function calculate(){
-    const regex = /(\d+\.?\d{0,7})/g;
     const invalidInput = /([^\d+\.?\d|*\/+-])/;
     const operatorEnd = /[*/+-\.]$/;
     var input = document.getElementById('equation').value;
 
-    if(input.match(invalidInput) || input.match(operatorEnd)){
+    if(input.match(invalidInput)) {
         alert("Wrong Input");
     }
 
-    else{
-
-        if(input.length > 254){
+    else {
+ 
+        if(input.match(operatorEnd)) {
+            return;
+        }
+        if(input.length > 254) {
             alert("Maximum character lenght: 255, try with less characters!");
         } else {
             var result = eval(input);
@@ -35,11 +37,25 @@ function addToEquation(charInput) {
     var currentEQ = document.getElementById('equation').value;
     var lastCharOfEQ = currentEQ[currentEQ.length-1];
     if(operators.includes(charInput)) {
-       if(operators.includes(lastCharOfEQ)){
-        document.getElementById('equation').value = currentEQ.substring(0, currentEQ.length-1);
-       }
-       document.getElementById('equation').value += charInput;
+        if(charInput == ".") {
+            if(currentEQ.length == 0){
+                addCharToEQ(0);
+            }
+            var anyDotsBeforeRegex = /^(\d+(\.\d+)+?(?=[\-\+\/\*]))/;
+            var reversedEq = currentEQ.split("").reverse().join("");
+            if(anyDotsBeforeRegex.test(reversedEq)){
+                return;
+            }
+        }
+        if(operators.includes(lastCharOfEQ)) {
+            removeLast();
+        }
+        addCharToEQ(charInput);
     } else {
-        document.getElementById('equation').value += charInput;
+        addCharToEQ(charInput);
     }
+}
+
+function addCharToEQ(charInput) {
+    document.getElementById('equation').value += charInput;
 }
