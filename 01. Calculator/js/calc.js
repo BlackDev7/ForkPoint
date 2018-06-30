@@ -1,6 +1,6 @@
 function calculate(){
 
-    const regex = /(\d{0,10}\.?\d{0,10})/g;
+    const regex = /(\d+\.?\d{0,7})/g;
     const invalidInput = /([^\d+\.?\d|*\/+-])/;
     const operatorEnd = /[*/+-]$/;
 
@@ -32,4 +32,9 @@ function calculate(){
 function removeLast() {
     var currentEq = document.getElementById('equation').value;
     document.getElementById('equation').value = currentEq.substring(0, currentEq.length-1);
+}
+
+function addToEquation(charInput){
+
+    document.getElementById('equation').value += charInput;
 }
