@@ -1,3 +1,21 @@
+$("body").on("click", "button", function (event) {
+    var clickVal = $(this).val();
+    switch(clickVal) {
+        case 'calc':
+            calculate();
+            break;
+        case 'CE':
+            $("#equation").val("");
+            break;
+        case 'C':
+            removeLast();
+            break;
+        default:
+            addToEquation(clickVal);
+            break;
+    }
+});
+
 function calculate(){
     const invalidInput = /([^\d+\.?\d|*\/+-])/;
     const operatorEnd = /[*/+-\.]$/;
