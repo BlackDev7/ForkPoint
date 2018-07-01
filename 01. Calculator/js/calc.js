@@ -16,6 +16,8 @@ $("body").on("click", "button", function (event) {
     }
 });
 
+$("#equation").keypress(keyPressedHandler);
+
 function calculate(){
     const invalidInput = /([^\d+\.?\d|*\/+-])/;
     const operatorEnd = /[*/+-\.]$/;
