@@ -16,7 +16,7 @@ function calculate(){
             alert("Maximum character lenght: 255, try with less characters!");
         } else {
             var result = eval(input);
-            
+            if(result == undefined) return false;
             if(result == "Infinity" || result == "-Infinity") {
                 alert("Cannot divide by 0");
             } else {
