@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    background-image: url("../images/bg.jpg");
+}
+
+label {
+    color: antiquewhite;
+    font-family: 'Aclonica';
+    font-size: 22px;
+}
+
+#map {
+    height: 200px;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    height: 40px !important;
+    min-height: 20px;
+}
+.error {
+    display: flex;
+    height: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color:red;
+}
+
+.card {
+    background-image: url("../images/formBG1.jpg");
+    background-size: contain;
+}
